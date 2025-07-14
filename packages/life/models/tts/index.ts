@@ -1,9 +1,11 @@
 import { z } from "zod";
 import { CartesiaTTS, cartesiaTTSConfigSchema } from "./providers/cartesia";
+import { DeepgramTTS, deepgramTTSConfigSchema } from "./providers/deepgram";
 
 // Providers
 export const ttsProviders = {
   cartesia: { class: CartesiaTTS, configSchema: cartesiaTTSConfigSchema },
+  deepgram: { class: DeepgramTTS, configSchema: deepgramTTSConfigSchema },
 } as const;
 
 export type TTSProvider = (typeof ttsProviders)[keyof typeof ttsProviders]["class"];
